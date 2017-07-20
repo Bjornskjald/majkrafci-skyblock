@@ -89,12 +89,14 @@ function koloruj(text, color){
 	}
 }
 
-if(process.argv.length !== 5) {
+if(process.argv.length !== 4) {
 	console.log("Usage : node index.js <nick> <haslo>");
 	process.exit(1);
 }
 
-var bot = mineflayer.createBot({
+let connected = false
+
+const bot = mineflayer.createBot({
 	host: 'mc.majkrafci.pl',
 	port: 25565,
 	username: process.argv[2],
@@ -102,7 +104,9 @@ var bot = mineflayer.createBot({
 	verbose: true,
 });
 bot.on('connect', () => {
-	setTimeout(zaloguj, 5000);
+	setTimeout(() => {
+		bot.chat("/l " + process.argv[3]);
+	}, 5000);
 })
 bot.on('end', () => {
 	console.log('Rozlaczono.')
@@ -112,10 +116,14 @@ bot.on('message', (message) => {
 	var wiadomosc = []
 	if(typeof message.extra === 'object'){
 		message.extra.forEach(function(el){
+			var tekst = el.text
 			if(tpaccept && tekst === '/tpaccept' && el.color === 'red'){
 				setTimeout(() => { bot.chat('/tpaccept') },1000)
 			}
-			var tekst = el.text
+			if(!connected && tekst === 'Haslo zaakceptowane!' && el.color === 'green'){
+				console.log("Zalogowano na lobby.");
+				setTimeout(kliknijKompas, 1000)
+			}
 			if(el.color) var tekst = koloruj(tekst, el.color)
 			wiadomosc.push(tekst)
 		})
@@ -138,12 +146,6 @@ rl.on('line', function(line) {
 		bot.chat(line)
 	}
 });
-
-function zaloguj(){
-	bot.chat("/l " + process.argv[3]);
-	console.log("Zalogowano na lobby.");
-	setTimeout(kliknijKompas, 5000);
-}
 function kliknijKompas(){
 	bot.activateItem();bot.deactivateItem();
 	setTimeout(wybierzSkyb, 1000);
