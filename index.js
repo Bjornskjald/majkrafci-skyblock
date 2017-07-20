@@ -94,8 +94,6 @@ if(process.argv.length !== 4) {
 	process.exit(1);
 }
 
-let connected = false
-
 const bot = mineflayer.createBot({
 	host: 'mc.majkrafci.pl',
 	port: 25565,
@@ -120,7 +118,7 @@ bot.on('message', (message) => {
 			if(tpaccept && tekst === '/tpaccept' && el.color === 'red'){
 				setTimeout(() => { bot.chat('/tpaccept') },1000)
 			}
-			if(!connected && tekst === 'Haslo zaakceptowane!' && el.color === 'green'){
+			if(tekst === 'Haslo zaakceptowane!' && el.color === 'green'){
 				console.log("Zalogowano na lobby.");
 				setTimeout(kliknijKompas, 1000)
 			}
