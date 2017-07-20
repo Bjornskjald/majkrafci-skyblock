@@ -1,0 +1,19 @@
+{
+  "name": "majkrafci",
+  "version": "1.0.0",
+  "description": "Bot na serwerze Majkrafci.pl",
+  "main": "testbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@bjorn.ml:4/home/git/majkrafci.git"
+  },
+  "author": "Bjornskjald",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "mineflayer": "^2.6.1"
+  }
+}
