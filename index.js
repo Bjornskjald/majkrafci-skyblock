@@ -69,7 +69,7 @@ bot.on('message', message => {
       bot.setControlState('jump', true)
       bot.setControlState('forward', true)
       bot.setControlState('sprint', true)
-      setTimeout(() => bot.clearControlState(), 2000)
+      setTimeout(() => bot.clearControlStates(), 2000)
     }
     return el.color ? koloruj(el.text, el.color) : el.text
   }).join(''))
