@@ -14,6 +14,6 @@
   "license": "MIT",
   "dependencies": {
     "colors": "^1.1.2",
-    "mineflayer": "^2.6.1"
+    "mineflayer": "^2.7.2"
   }
 }
