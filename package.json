@@ -4,6 +4,7 @@
   "description": "Bot na serwerze Majkrafci.pl",
   "main": "testbot.js",
   "scripts": {
+    "start": "ts-node bin/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -14,6 +15,14 @@
   "license": "MIT",
   "dependencies": {
     "colors": "^1.1.2",
-    "mineflayer": "^2.7.2"
+    "mineflayer": "^2.7.2",
+    "npmlog": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/colors": "^1.2.1",
+    "@types/node": "^10.3.5",
+    "ts-node": "^7.0.0",
+    "tslib": "^1.9.3",
+    "typescript": "^2.9.2"
   }
 }
