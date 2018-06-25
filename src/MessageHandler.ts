@@ -98,7 +98,7 @@ export class MessageHandler {
     if (!message.extra || message.extra.length < 6) return false
     const parts = message.extra
     if (
-      parts[2].text === '->' &&
+      parts[2].text === ' -> ' &&
       parts[2].color === 'gold' &&
 
       parts[3].text === 'Ja' && 
