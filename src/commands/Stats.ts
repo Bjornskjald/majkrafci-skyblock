@@ -1,5 +1,4 @@
 import Command from '../Command'
-import { Bot } from '../Bot'
 
 export default class Stats extends Command {
   name = 'stats'
