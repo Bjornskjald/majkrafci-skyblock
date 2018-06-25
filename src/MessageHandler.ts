@@ -3,12 +3,14 @@ import color from './color'
 import { createInterface } from 'readline'
 import Hotword from './Hotword'
 import Command from './Command'
-import Stats from './commands/Stats'
-import Quit from './commands/Quit'
-import End from './commands/End'
+
 import Echo from './commands/Echo'
-import TabComplete from './commands/TabComplete'
+import End from './commands/End'
 import List from './commands/List'
+import Quit from './commands/Quit'
+import Say from './commands/Say'
+import Stats from './commands/Stats'
+import TabComplete from './commands/TabComplete'
 
 const rl = createInterface({
   input: process.stdin,
@@ -52,6 +54,7 @@ export class MessageHandler {
       new End(this.bot),
       new List(this.bot),
       new Quit(this.bot),
+      new Say(this.bot),
       new Stats(this.bot),
       new TabComplete(this.bot)
     ]
