@@ -35,7 +35,7 @@ export class MessageHandler {
       new Hotword(
         'Haslo zaakceptowane!',
         'green',
-        () => kliknijKompas(this.bot)
+        () => setTimeout(() => kliknijKompas(this.bot), 1000)
       ),
       new Hotword(
         '/login <haslo>',
