@@ -8,8 +8,8 @@ export default class List extends Command {
     if (super.handle(argv, sender)) return
     const self = this
     function eventListener (packet, meta) {
-      self.bot.client._client.removeListener('packet', eventListener)
       if (meta.name !== 'tab_complete') return
+      self.bot.client._client.removeListener('packet', eventListener)
       self.send(`Online: ${packet.matches.join(', ')}`, sender)
     }
     this.bot.client._client.write('tab_complete', { text: `/minecraft:tell ` })
