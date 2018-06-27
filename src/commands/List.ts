@@ -11,6 +11,8 @@ export default class List extends Command {
       if (meta.name !== 'tab_complete') return
       self.bot.client._client.removeListener('packet', eventListener)
       self.send(`Online: ${packet.matches.join(', ')}`, sender)
+      const vanished = packet.matches.filter(el => !self.bot.client.players.includes(el))
+      self.send(`Vanished: ${vanished.join(', ')}`, sender)
     }
     this.bot.client._client.write('tab_complete', { text: `/minecraft:tell ` })
     this.bot.client._client.on('packet', eventListener)
