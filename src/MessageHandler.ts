@@ -10,7 +10,6 @@ import List from './commands/List'
 import Quit from './commands/Quit'
 import Say from './commands/Say'
 import Stats from './commands/Stats'
-import TabComplete from './commands/TabComplete'
 
 const rl = createInterface({
   input: process.stdin,
@@ -55,8 +54,7 @@ export class MessageHandler {
       new List(this.bot),
       new Quit(this.bot),
       new Say(this.bot),
-      new Stats(this.bot),
-      new TabComplete(this.bot)
+      new Stats(this.bot)
     ]
 
     rl.on('line', this.onOutgoing)
